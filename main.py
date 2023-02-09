@@ -14,14 +14,16 @@ async def main(dp):
     await bot.set_webhook(URL)
     old_response = ''
     # response = ping(IP, verbose=True)
-    response = subprocess.getstatusoutput("ping -n 1 " + IP)
-    if old_response != response:
-        if response[0] == 0:
-            await lights_on(dp)
-            old_response = response
-        else:
-            await lights_off(dp)
-            old_response = response
+    while True:
+        response = subprocess.getstatusoutput("ping -n 1 " + IP)
+        print(response)
+        if old_response != response:
+            if response[0] == 0:
+                await lights_on(dp)
+                old_response = response
+            else:
+                await lights_off(dp)
+                old_response = response
 
 
 async def on_shutdown(dp):
