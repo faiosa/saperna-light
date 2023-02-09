@@ -14,7 +14,7 @@ async def main(dp):
     await bot.set_webhook(URL)
     old_response = ''
     # response = ping(IP, verbose=True)
-    response = subprocess.getstatusoutput("ping -c 1 " + IP)
+    response = subprocess.getstatusoutput("ping -n 1 " + IP)
     if old_response != response:
         if response[0] == 0:
             await lights_on(dp)
