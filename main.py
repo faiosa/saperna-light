@@ -15,7 +15,7 @@ async def main(dp):
     old_response = ''
     # response = ping(IP, verbose=True)
     while True:
-        response = subprocess.getstatusoutput("ping -n 1 " + IP)
+        response = subprocess.getstatusoutput("ping -c 1 " + IP)
         print(response)
         if old_response != response:
             if response[0] == 0:
