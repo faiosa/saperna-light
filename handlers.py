@@ -1,5 +1,6 @@
 from main import bot
 from config import GROUP_ID, LIGHTS_ON_TEXT, LIGHTS_OFF_TEXT
+# Comment
 
 
 async def lights_on(dp):
